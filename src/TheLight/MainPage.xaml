@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--*********************************************************************************************
+ * 
+ * Home Page  layout and design written in XAML
+ * Written by Caleb Lynch
+ * Last Update: 2/23/2021
+ * Purpose: Set layout and design for home page, includes listen live player (album art, song title, artist), recent songs, 
+ * 
+ ************************************************************************************************-->
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="TheLight.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackLayout Margin="0, 0, 0, 0" 
+                         Padding="10, 15"
+                         Orientation="Horizontal"
+                         BackgroundColor="#991b1e"
+                         Spacing="15">
+                <Image Source="menu"
+                       VerticalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMenuTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="Home"
+                       TextColor="White"
+                       FontSize="Title"
+                       FontAttributes="Bold"
+                       VerticalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"/>
+            </StackLayout>
+        </Grid>
+
+        <StackLayout Grid.Row="1" Padding="10, 0, 10, 25" VerticalOptions="CenterAndExpand">
+            <StackLayout.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Image">
+                        <Setter Property="Margin" Value="10,0"/>
+                        <Setter Property="WidthRequest" Value="70"/>
+                    </Style>
+                    <Style TargetType="ImageButton">
+                        <Setter Property="Margin" Value="10,0"/>
+                        <Setter Property="WidthRequest" Value="70"/>
+                    </Style>
+                </ResourceDictionary>
+            </StackLayout.Resources>
+
+            <Image x:Name="AlbumArt" Source="https://thelightapp.apex-sites.com/uploads/xml/WQLU_FM_00.jpg" WidthRequest="400"  Margin="10, 20, 10, 10"></Image>
+            <Label x:Name="SongInfo" Text="21 Years by TobyMac" HorizontalOptions="CenterAndExpand" Margin="0, 0, 0, 10" FontSize="Title" FontFamily="Roboto" TextColor="Black"/>
+            <Grid HorizontalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <ImageButton x:Name="pauseBtn" Source="pauseBtn.png" BackgroundColor="Transparent" Grid.Column="0" Clicked="Pause"/>
+                <Frame x:Name="loadingImg" IsVisible="false" Margin="10, 0" Padding="0" BackgroundColor="#991b1e" Grid.Column="1" WidthRequest="100" HeightRequest="100" CornerRadius="50">
+                    <ActivityIndicator IsRunning="True" Color="White" Margin="10"/>
+                </Frame>
+                <ImageButton x:Name="playBtn" Source="playBtn.png" BackgroundColor="Transparent" Grid.Column="1" Clicked="Play" WidthRequest="100"/>
+                <ImageButton Source="stopBtn.png"  BackgroundColor="Transparent" Grid.Column="2" Clicked="Stop" />
+
+            </Grid> 
+
+        </StackLayout>
+
+    </Grid>
+</ContentView>

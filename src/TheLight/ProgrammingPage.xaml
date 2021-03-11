@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="white"
+             x:Name="this"
+             x:Class="TheLight.ProgrammingPage">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackLayout Margin="0, 0, 0, 0" 
+                         Padding="10, 15"
+                         Orientation="Horizontal"
+                         BackgroundColor="#991b1e"
+                         Spacing="15">
+                <Image Source="menu"
+                       VerticalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMenuTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="Programming"
+                       TextColor="White"
+                       FontSize="Title"
+                       FontAttributes="Bold"
+                       VerticalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"/>
+            </StackLayout>
+        </Grid>
+        
+        <FlexLayout Direction="Column"
+                    AlignItems="Center"
+                    JustifyContent="SpaceEvenly">
+            <Label
+                Text="As our programming changes from semester to semester, check here for our latest updates." 
+                FontSize="Medium"/>
+            <Label
+                x:Name="label1" />
+        </FlexLayout>
+    </Grid>
+    
+</ContentView>

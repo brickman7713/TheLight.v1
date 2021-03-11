@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--*********************************************************************************************
+ * 
+ * Prayer Request page layout and design written in XAML
+ * Written by Caleb Lynch
+ * Last Update: 2/23/2021
+ * Purpose: Set layout and design for prayer request page, includes prayer request form. 
+ * 
+ ************************************************************************************************-->
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="TheLight.PrayerPage">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackLayout Margin="0, 0, 0, 0" 
+                             Padding="10, 15"
+                             Orientation="Horizontal"
+                             BackgroundColor="#991b1e"
+                             Spacing="15">
+                    <Image Source="menu"
+                           VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMenuTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Prayer Request"
+                           TextColor="White"
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                           VerticalOptions="CenterAndExpand"
+                           VerticalTextAlignment="Center" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <StackLayout>
+                    <StackLayout.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="Frame">
+                                <Setter Property="BackgroundColor" Value="#f7f7f7" />
+                                <Setter Property="Margin" Value="20, 0" />
+                                <Setter Property="Padding" Value="15" />
+                                <Setter Property="HasShadow" Value="False" />
+                                <Setter Property="BorderColor" Value="#c4c4c4" />
+                            </Style>
+                            <Style TargetType="Label">
+                                <Setter Property="FontSize" Value="Subtitle" />
+                                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                                <Setter Property="FontFamily" Value="Roboto" />
+                                <Setter Property="TextColor" Value="Black" />
+                            </Style>
+
+                            <Style TargetType="Button">
+                                <Setter Property="Margin" Value="100, 15" />
+                                <Setter Property="BackgroundColor" Value="#1b264a" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="CornerRadius" Value="20" />
+                            </Style>
+                        </ResourceDictionary>
+                    </StackLayout.Resources>
+
+                    <!--<Label Text="Have a question? Give us a call or send us a message below and we will get back to you as soon as possible!"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       Padding="15, 20" 
+                       FontFamily="Roboto" 
+                       FontSize="Medium"/>-->
+
+                    <StackLayout Orientation="Horizontal" Margin="15, 0">
+                        <StackLayout.Resources>
+                            <ResourceDictionary>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="0" />
+                                    <Setter Property="BackgroundColor" Value="#1b264a" />
+                                    <Setter Property="TextColor" Value="White" />
+                                    <Setter Property="CornerRadius" Value="20" />
+                                </Style>
+                            </ResourceDictionary>
+                        </StackLayout.Resources>
+
+                        <!--<Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="1" HorizontalOptions="CenterAndExpand">
+
+                                <Label Text="Office" FontSize="Title" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <Grid Grid.Column="3" HorizontalOptions="CenterAndExpand">
+                                <Label Text="Office" FontSize="Title" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                        </Grid>-->
+                        
+                        
+
+
+
+                    </StackLayout>
+
+                    <Label Text="Have a prayer request? We would love to pray for you! Please fill out the form below to submit a prayer request." Padding="15" FontSize="Medium" FontFamily="Roboto"/>
+
+                    <Label Text="Name" 
+                        HorizontalTextAlignment="Start"
+                        Padding="20, 10, 20, 0" 
+                        FontFamily="Roboto" 
+                        FontSize="Large"/>
+                    <Frame>
+                        
+                        <Entry x:Name="name" Placeholder="(Optional)" />
+                    </Frame>
+
+                    <Label Text="Email" 
+                        HorizontalTextAlignment="Start"
+                        Padding="20, 10, 20, 0" 
+                        FontFamily="Roboto" 
+                        FontSize="Large"/>
+                    <Frame>
+                        <Entry x:Name="email" Placeholder="(Optional)" />
+                    </Frame>
+
+                    <Label Text="Prayer Request" 
+                        HorizontalTextAlignment="Start"
+                        Padding="20, 10, 20, 0"
+                        FontFamily="Roboto" 
+                        FontSize="Large"/>
+                    <Frame>
+                        <Editor x:Name="prayerMessage" Placeholder="" HeightRequest="150"/>
+                    </Frame>
+
+                    <Button Text="Submit" Clicked="PrayerSubmit"/>
+                    
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentView>

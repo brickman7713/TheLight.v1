@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--*********************************************************************************************
+ * 
+ * CSER Page layout and design written in XAML
+ * Written by 
+ * Last Update: 2/23/2021
+ * Purpose: Set layout and design for CSER page, includes static text about CSER info and 90.9 managers phone number.
+ * 
+ ************************************************************************************************-->
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="TheLight.CSERPage">
+
+             
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackLayout Margin="0, 0, 0, 0" 
+                         Padding="10, 15"
+                         Orientation="Horizontal"
+                         BackgroundColor="#991b1e"
+                         Spacing="15">
+                <Image Source="menu"
+                       VerticalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMenuTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="CSER Opportunities"
+                       TextColor="White"
+                       FontSize="Title"
+                       FontAttributes="Bold"
+                       VerticalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"/>
+            </StackLayout>
+        </Grid>
+        
+        <StackLayout Grid.Row="1" Padding="15">
+            <StackLayout.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor" Value="Black"/>
+                    </Style>
+                </ResourceDictionary>
+            </StackLayout.Resources>
+            
+            <Label Text="The Light offers a variety of CSER opportunities involved in radio production. Please see the list below and contact sestilwell@liberty.edu if you are interested in CSER at 90.9 The Light." FontSize="Medium" FontFamily="Roboto"/>
+            <StackLayout>
+                <StackLayout.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="Label">
+                            <Setter Property="TextColor" Value="Black"/>
+                            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Label Text="Social Media / Marketing"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <Label Text="On Air / DJ"/>
+                    </Grid>
+                </Grid>
+                
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+    
+</ContentView>

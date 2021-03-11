@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "495909400185",
+    "firebase_url": "https://the-light-7f317.firebaseio.com",
+    "project_id": "the-light-7f317",
+    "storage_bucket": "the-light-7f317.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495909400185:android:52244666cad2b88dc96ea8",
+        "android_client_info": {
+          "package_name": "com.covidcoders.thelight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495909400185-mo52dp04ihs882p4abqsdqk9flrmjmqp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7CogihVHpDIyGBFTye5JCmSTtYYiYeJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495909400185-mo52dp04ihs882p4abqsdqk9flrmjmqp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

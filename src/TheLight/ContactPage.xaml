@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+    
+ <!--*********************************************************************************************
+ * 
+ * Contact Us Page layout and design written in XAML
+ * Written by Caleb Lynch
+ * Last Update: 2/23/2021
+ * Purpose: Set layout and design for contact page, includes contact form and phone numbers.
+ * 
+ ************************************************************************************************-->
+    
+    
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="TheLight.ContactPage">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackLayout Margin="0, 0, 0, 0" 
+                             Padding="{OnPlatform Android='10, 15', iOS='10, 40, 10, 15'}"
+                             Orientation="Horizontal"
+                             BackgroundColor="#991b1e"
+                             Spacing="15">
+                    <Image Source="menu"
+                           VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMenuTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Contact Us"
+                           TextColor="White"
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                           VerticalOptions="CenterAndExpand"
+                           VerticalTextAlignment="Center" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <StackLayout>
+                    <StackLayout.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="Frame">
+                                <Setter Property="BackgroundColor" Value="#f7f7f7" />
+                                <Setter Property="Margin" Value="20, 0" />
+                                <Setter Property="Padding" Value="15" />
+                                <Setter Property="HasShadow" Value="False" />
+                                <Setter Property="BorderColor" Value="#c4c4c4" />
+                            </Style>
+                            <Style TargetType="Label">
+                                <Setter Property="FontSize" Value="Subtitle" />
+                                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                                <Setter Property="FontFamily" Value="Roboto" />
+                                <Setter Property="TextColor" Value="Black" />
+                            </Style>
+
+                            <Style TargetType="Button">
+                                <Setter Property="Margin" Value="100, 15" />
+                                <Setter Property="BackgroundColor" Value="#1b264a" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="CornerRadius" Value="20" />
+                            </Style>
+                        </ResourceDictionary>
+                    </StackLayout.Resources>
+
+                    <StackLayout Orientation="Horizontal" Margin="15, 0">
+                        <StackLayout.Resources>
+                            <ResourceDictionary>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="0" />
+                                    <Setter Property="BackgroundColor" Value="#1b264a" />
+                                    <Setter Property="TextColor" Value="White" />
+                                    <Setter Property="CornerRadius" Value="20" />
+                                </Style>
+                            </ResourceDictionary>
+                        </StackLayout.Resources>
+
+                    </StackLayout>
+
+                    <Label Text="Fill out the form below to message us or give us a call!" Padding="15" FontSize="Medium" FontFamily="Roboto"/>
+
+                    <Label Text="Name" 
+                        HorizontalTextAlignment="Start"
+                        Padding="20, 10, 20, 0" 
+                        FontFamily="Roboto" 
+                        FontSize="Large"/>
+                    <Frame>
+                        
+                        <Entry x:Name="name" Placeholder="John Doe" />
+                    </Frame>
+
+                    <Label Text="Email" 
+                        HorizontalTextAlignment="Start"
+                        Padding="20, 10, 20, 0" 
+                        FontFamily="Roboto" 
+                        FontSize="Large"/>
+                    <Frame>
+                        <Entry x:Name="email" Placeholder="jdoe@example.com" />
+                    </Frame>
+
+                    <Label Text="Message" 
+                        HorizontalTextAlignment="Start"
+                        Padding="20, 10, 20, 0"
+                        FontFamily="Roboto" 
+                        FontSize="Large"/>
+                    <Frame>
+                        <Editor x:Name="contactMessage" Placeholder="" HeightRequest="150"/>
+                    </Frame>
+
+                    <Button Text="Submit" Clicked="ContactSubmit"/>
+
+
+                    <Label Text="Office: 434-592-7791" FontSize="Title">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Call_Office" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="Studio: 434-582-2909" FontSize="Title">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Call_Studio" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentView>
